@@ -39,9 +39,9 @@ export const deleteEvent = async (req: Request, res: Response) => {
             return res.status(404).json({ ok: false, msg: 'No existe el evento' });
 
         if (evt.user.toString() !== uid)
-            return res.status(401).json({ ok: false, msg: 'No puedes editar el evento de otra persona' });
+            return res.status(401).json({ ok: false, msg: 'No puedes eliminar el evento de otra persona' });
 
-        const evtDeleted = await EventModel.findByIdAndRemove(id, { new: true });
+        const evtDeleted = await EventModel.findByIdAndDelete(id, { new: true });
 
         res.status(200).json({
             ok: true,
