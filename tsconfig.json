@@ -7,7 +7,7 @@
 		"noImplicitAny": true,
 		"moduleResolution": "node",
 		"sourceMap": false,
-		// "outDir": "./cache",
+		"outDir": "./cache",
 		"emitDecoratorMetadata": true,
 		"experimentalDecorators": true,
 		"typeRoots": ["./src/types", "./node_modules/@types"]
