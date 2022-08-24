@@ -18,6 +18,10 @@
     "@types/jsonwebtoken": "^8.5.8",
     "nodemon": "^2.0.19"
   },
+  "engines": {
+    "node": "16.16.0",
+    "npm": "8.14.0"
+  },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
