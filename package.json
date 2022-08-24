@@ -5,8 +5,7 @@
   "main": "src/index.ts",
   "scripts": {
     "dev": "nodemon src/index.ts",
-    "prebuild": "tsc",
-    "start": "npm run prebuild && node build/index.js"
+    "start": "node build/index.js"
   },
   "keywords": [],
   "author": "",
