@@ -2,11 +2,11 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "cache/index.js",
+  "main": "src/index.ts",
   "scripts": {
-    "build": "tsc",
     "dev": "nodemon src/index.ts",
-    "start": "node cache/index.js"
+    "start": "node build/index.js",
+    "postinstall": "tsc"
   },
   "keywords": [],
   "author": "",
