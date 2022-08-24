@@ -4,6 +4,7 @@
   "description": "",
   "main": "cache/index.js",
   "scripts": {
+    "build": "tsc",
     "dev": "nodemon src/index.ts",
     "start": "node cache/index.js"
   },
