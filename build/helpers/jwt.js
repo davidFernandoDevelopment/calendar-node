@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.generarJWT = void 0;
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const yenv_1 = __importDefault(require("yenv"));
-const env = (0, yenv_1.default)();
+const env = yenv_1.default();
 const generarJWT = (uid, name) => {
     return new Promise((resolve, reject) => {
         const payload = { uid, name };

@@ -21,7 +21,7 @@ const createUser = async (req, res) => {
         const salt = bcryptjs_1.default.genSaltSync(10);
         user.password = bcryptjs_1.default.hashSync(password, salt);
         await user.save();
-        const token = await (0, jwt_1.generarJWT)(user.id, user.name);
+        const token = await jwt_1.generarJWT(user.id, user.name);
         res.status(201).json({
             ok: true,
             uid: user.id,
@@ -55,7 +55,7 @@ const loginUser = async (req, res) => {
                 msg: "Contraseña incorrecta"
             });
         }
-        const token = await (0, jwt_1.generarJWT)(user.id, user.name);
+        const token = await jwt_1.generarJWT(user.id, user.name);
         res.status(200).json({
             ok: true,
             uid: user.id,
@@ -69,7 +69,7 @@ const loginUser = async (req, res) => {
 exports.loginUser = loginUser;
 const revalidateToken = async (req, res) => {
     const { uid, name } = req;
-    const token = await (0, jwt_1.generarJWT)(uid, name);
+    const token = await jwt_1.generarJWT(uid, name);
     res.status(200).json({
         ok: true,
         token

@@ -9,7 +9,7 @@ const isDate = (value, opts) => {
     if (!value) {
         return false;
     }
-    const fecha = (0, moment_1.default)(value);
+    const fecha = moment_1.default(value);
     if (fecha.isValid()) {
         return true;
     }

@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.DBconnection = void 0;
 const mongoose_1 = __importDefault(require("mongoose"));
 const yenv_1 = __importDefault(require("yenv"));
-const env = (0, yenv_1.default)();
+const env = yenv_1.default();
 const DBconnection = async () => {
     try {
         const connectionString = `mongodb+srv://${env.DATABASE.MONGO.USER}:${env.DATABASE.MONGO.PASSWORD}@${env.DATABASE.MONGO.HOST}/${env.DATABASE.MONGO.DB_NAME}`;

@@ -28,4 +28,4 @@ schema.method('toJSON', function () {
     object.id = _id;
     return object;
 });
-exports.default = (0, mongoose_1.model)('Event', schema);
+exports.default = mongoose_1.model('Event', schema);

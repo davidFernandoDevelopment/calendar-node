@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.jwtValidate = void 0;
 const yenv_1 = __importDefault(require("yenv"));
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
-const env = (0, yenv_1.default)();
+const env = yenv_1.default();
 const jwtValidate = (req, res, next) => {
     const token = req.header('x-token');
     if (!token) {
