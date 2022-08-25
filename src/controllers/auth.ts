@@ -80,6 +80,8 @@ export const revalidateToken = async (req: Request, res: Response) => {
 
     res.status(200).json({
         ok: true,
-        token
+        uid, 
+        name,
+        token,
     });
 };
