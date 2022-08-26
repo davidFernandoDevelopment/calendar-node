@@ -1,7 +1,7 @@
 import cors from 'cors';
 import yenv from 'yenv';
 import path from 'path';
-import express from 'express';
+import express, { Request, Response } from 'express';
 
 import { router as authRouter } from './routes/auth';
 import { router as eventRouter } from './routes/event';
@@ -18,6 +18,10 @@ app.use(express.static(path.join(__dirname, '../public')));
 
 app.use('/api/auth', authRouter);
 app.use('/api/events', eventRouter);
+
+app.get('*', (req: Request, res: Response) => {
+	res.sendFile(path.join(__dirname, '../public/index.html'));
+});
 
 app.listen(env.PORT, () => {
 	console.log(`SERVER IS RUNNING ON PORT: ${env.PORT}`);
