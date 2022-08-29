@@ -12,11 +12,13 @@ export const getEvents = async (req: Request, res: Response) => {
 };
 
 export const createEvent = async (req: Request, res: Response) => {
-	const evt = new EventModel(req.body);
+	const evt = new EventModel({
+		...req.body,
+		...(req.body.id ? { _id: req.body.id } : {}),
+	});
 
 	try {
 		evt.user = req.uid;
-		if (evt.id) evt._id = evt.id;
 		const eventoDB = await evt.save();
 		return res.status(200).json({
 			ok: true,
@@ -38,12 +40,10 @@ export const deleteEvent = async (req: Request, res: Response) => {
 			return res.status(404).json({ ok: false, msg: 'No existe el evento' });
 
 		if (evt.user.toString() !== uid)
-			return res
-				.status(401)
-				.json({
-					ok: false,
-					msg: 'No puedes eliminar el evento de otra persona',
-				});
+			return res.status(401).json({
+				ok: false,
+				msg: 'No puedes eliminar el evento de otra persona',
+			});
 
 		const evtDeleted = await EventModel.findByIdAndDelete(id, { new: true });
 
